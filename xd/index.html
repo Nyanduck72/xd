@@ -65,18 +65,18 @@ function showFullScreenImage() {
     var button = document.getElementById('imageButton');
     button.disabled = true;
 
-    var selection = Math.floor(Math.random() * images.length);
-    var overlay = document.getElementById('overlay');
-    overlay.innerHTML = '<img src="' + images[selection] + '" alt="Full Screen Image">';
-    overlay.style.opacity = '1';
-    overlay.style.display = 'flex';
-
     var sound = document.getElementById('sound');
     sound.play();
 
     sound.onended = function() {
         button.disabled = false;
     };
+
+    var selection = Math.floor(Math.random() * images.length);
+    var overlay = document.getElementById('overlay');
+    overlay.innerHTML = '<img src="' + images[selection] + '" alt="Full Screen Image">';
+    overlay.style.opacity = '1';
+    overlay.style.display = 'flex';
 
     setTimeout(function() {
         overlay.style.opacity = '1'; // Fade in
@@ -86,8 +86,8 @@ function showFullScreenImage() {
         overlay.style.opacity = '0'; // Fade out
         setTimeout(function() {
             overlay.style.display = 'none';
-        }, 2500); // Adjust the duration of the fade out animation
-    }, 500); // Adjust the duration the image is shown
+        }, 2000); // Adjust the duration of the fade out animation
+    }, 1000); // Adjust the duration the image is shown
 }
 </script>
 
