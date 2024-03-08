@@ -27,14 +27,13 @@
 </head>
 <body>
 
-<button onclick="showFullScreenImage()" id="imageButton">Click me :)</button>
+<h1 id="imageButton">Press Enter :)</h1>
 
 <div id="overlay"></div>
 
 <audio id="sound" src="Vine-boom-sound-effect.mp3"></audio>
 
 <script>
-
 
 let images = [
     "https://m.gjcdn.net/fireside-post-image/900/19968419-u3kfqjg6-v4.webp",
@@ -81,15 +80,21 @@ let images = [
     "./img/z.jpeg",
 ]
 
-function showFullScreenImage() {
-    var button = document.getElementById('imageButton');
-    button.disabled = true;
+let enterEnable = true;
+    document.addEventListener('keydown', (e) => {
+    let keycode = e.keyCode;
+    if (keycode === 13 && enterEnable) {
+        showFullScreenImage();
+    }
+    });
 
+function showFullScreenImage() {
+    enterEnable = false;
     var sound = document.getElementById('sound');
     sound.play();
 
     sound.onended = function() {
-        button.disabled = false;
+        enterEnable = true;
     };
 
     var selection = Math.floor(Math.random() * images.length);
