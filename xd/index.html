@@ -27,7 +27,11 @@
 </head>
 <body>
 
-<h1 id="imageButton">Press Enter :)</h1>
+<h1>Press Enter :)</h1>
+<br />
+<p>or</p>
+<br />
+<button id="imageButton"
 
 <div id="overlay"></div>
 
@@ -87,6 +91,12 @@ let enterEnable = true;
         showFullScreenImage();
     }
     });
+
+    
+    const btn = document.getElementById('imageButton')
+    btn.addEventListener('click', (e) => {
+        showFullScreenImage();
+    })
 
 function showFullScreenImage() {
     enterEnable = false;
